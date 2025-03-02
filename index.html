@@ -11,9 +11,14 @@
 <body>
   <div id="app"></div>
   <script>
+    // 检查用户是否已登录
     if (localStorage.getItem('isAuthenticated') !== 'true') {
-            window.location.href = 'login.html';
-        }
+        window.location.href = 'login.html';
+    }
+    // 在页面关闭时清除登录信息
+    window.addEventListener('beforeunload', function() {
+        localStorage.removeItem('isAuthenticated');
+    });
     window.$docsify = {
       themeColor: '#1677B3',
       loadSidebar: true,
