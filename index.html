@@ -11,6 +11,9 @@
 <body>
   <div id="app"></div>
   <script>
+    if (localStorage.getItem('isAuthenticated') !== 'true') {
+            window.location.href = 'login.html';
+        }
     window.$docsify = {
       themeColor: '#1677B3',
       loadSidebar: true,
